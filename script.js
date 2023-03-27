@@ -169,6 +169,7 @@ tlGrow.to(
 );
 // On Page Load
 function pageLoad() {
+  $(window).scrollTop(0);
   let typeSplit = new SplitType(".display", {
     types: "words",
     /* words, chars, lines */
