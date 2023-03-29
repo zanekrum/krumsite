@@ -517,6 +517,7 @@ function sliderLoad() {
         // mobile landscape
         480: {
           slidesPerView: 1,
+          cssMode: true,
           spaceBetween: "4%"
         },
         // tablet
