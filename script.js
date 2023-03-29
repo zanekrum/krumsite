@@ -122,6 +122,43 @@ function homeMarquee() {
 }
 homeMarquee();
 
+function imageReveal() {
+  $(".img_wrap").each(function (index) {
+    let triggerElement = $(this);
+    let targetElement = $(this);
+
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: $(this),
+        start: "top 80%",
+        toggleActions: "play none play reverse"
+      }
+    });
+    // TOGGLE ACTIONS ORDER
+    // element enters view from screen bottom
+    // element exits view from screen top
+    // element re-enters view from screen top
+    // element re-exits view from screen bottom
+
+    tl.fromTo(
+      $(this),
+      { clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)" },
+      {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        duration: 2,
+        ease: "power2.out"
+      }
+    ).from(
+      $(this).find(".img-move"),
+      {
+        duration: 2,
+        y: 100
+      },
+      0
+    );
+  });
+}
+imageReveal();
 // Page Loader
 function createAnimation() {
   $(".line").each(function (index) {
@@ -518,41 +555,6 @@ function sliderLoad() {
 }
 sliderLoad();
 
-$(".img_wrap").each(function (index) {
-  let triggerElement = $(this);
-  let targetElement = $(this);
-
-  let tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: $(this),
-      start: "top 80%",
-      toggleActions: "play none play reverse"
-    }
-  });
-  // TOGGLE ACTIONS ORDER
-  // element enters view from screen bottom
-  // element exits view from screen top
-  // element re-enters view from screen top
-  // element re-exits view from screen bottom
-
-  tl.fromTo(
-    $(this),
-    { clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)" },
-    {
-      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      duration: 2,
-      ease: "power2.out"
-    }
-  ).from(
-    $(this).find(".img-move"),
-    {
-      duration: 2,
-      y: 100
-    },
-    0
-  );
-});
-
 // Page Color animation
 // PAGE COLOR POWER-UP
 
@@ -570,6 +572,7 @@ barba.hooks.after((data) => {
   colorPage();
   homeMarquee();
   textCtaa();
+  imageReveal();
   resetWebflow(data);
   //$(data).removeClass("fixed");
   //$(data).removeClass("fixed");
@@ -602,3 +605,4 @@ document.addEventListener("DOMContentLoaded", function () {
     ]
   });
 });
+
