@@ -231,6 +231,27 @@ function pageLoad() {
     },
     0.1
   );
+
+  tl.from(
+    ".u-img-cover",
+    {
+      y: "-100%",
+      ease: "power3.inOut",
+      duration: 2,
+      opacity: 0
+    },
+    0
+  );
+  tl.from(
+    ".port_details-grid",
+    {
+      y: "100%",
+      ease: "power3.inOut",
+      duration: 2,
+      opacity: 0
+    },
+    0
+  );
   tl.from(
     ".kicker.h-k",
     {
@@ -504,6 +525,7 @@ function sliderLoad() {
       freeMode: false,
       slideToClickedSlide: false,
       slidesPerView: 1,
+
       spaceBetween: "4%",
       rewind: false,
       mousewheel: {
@@ -517,7 +539,6 @@ function sliderLoad() {
         // mobile landscape
         480: {
           slidesPerView: 1,
-          cssMode: true,
           spaceBetween: "4%"
         },
         // tablet
@@ -606,4 +627,3 @@ document.addEventListener("DOMContentLoaded", function () {
     ]
   });
 });
-
