@@ -224,9 +224,9 @@ function pageLoad() {
     ".display .word",
     {
       y: "100%",
-      stagger: { each: 0.04 },
+      stagger: { each: 0.02 },
       ease: "power3.out",
-      duration: 2,
+      duration: 1.5,
       opacity: 0
     },
     0.1
@@ -296,8 +296,8 @@ function pageLoad() {
     {
       y: "100%",
       ease: "power3.out",
-      stagger: 0.1,
-      duration: 2,
+      stagger: 0.05,
+      duration: 1,
       opacity: 0
     },
     0.2
