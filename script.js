@@ -191,7 +191,7 @@ let tlGrow = gsap.timeline({
 tlGrow.fromTo(
   ".home-opener-content_wrap",
   {
-    clipPath: "polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%)"
+    clipPath: "polygon(40% 0%, 60% 0%, 40% 100%, 60% 100%)"
   },
   {
     clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"
